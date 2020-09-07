@@ -18,7 +18,7 @@ mongoose.connect(url,
     })
 
 app.get('/', (req, res) =>{
-    res.send("hello world");
+    res.send("hello world test ");
 })
 app.listen(port, (req,res)=>{
     console.log(`Đang chạy trên port ${port}`);
