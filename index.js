@@ -1,13 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
+import userRouter from './routers/userRouter.js';
 
 const app = express();
 const port = 3000;
 const url = "mongodb+srv://nhannbt:nhanne@cluster0-hw1yh.mongodb.net/dbDuAn?retryWrites=true&w=majority"
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 mongoose.connect(url,
     {useNewUrlParser : true, useUnifiedTopology :true})
@@ -16,6 +17,9 @@ mongoose.connect(url,
     }).catch((error)=>{
         console.log("Lỗi kết nối đến database");
     })
+
+//cài đặt điều hướng
+app.use('/user/',userRouter);
 
 app.get('/', (req, res) =>{
     res.send("hello world test ");
