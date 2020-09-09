@@ -1,7 +1,5 @@
 import User from '../models/user.js'
 
-
-
 export async function addUser(req,res){
     const user = new User(req.body);
     try{
@@ -24,4 +22,23 @@ export async function addUser(req,res){
         })
     }
 
+}
+
+export function getAllUser(req,res){
+    User.find({}).then(users => {
+        res.send(users)
+    })
+}
+
+export async function deleteUser(req,res){
+    try {
+        const user = await User.findByIdAndDelete(req.params.id, req.body);
+        if(!user){
+            res.status(404).send("User not found")
+        } else {
+            res.send('Delete success')
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
 }

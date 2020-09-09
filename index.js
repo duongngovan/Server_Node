@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import userRouter from './routers/userRouter.js';
+import shopRouter from './routers/shopRouter.js';
 
 const app = express();
 const port = 3000;
@@ -20,10 +21,13 @@ mongoose.connect(url,
 
 //cài đặt điều hướng
 app.use('/user/',userRouter);
+app.use('/shop/',shopRouter);
+
 
 app.get('/', (req, res) =>{
     res.send("hello world test ");
 })
+
 app.listen(port, (req,res)=>{
     console.log(`Đang chạy trên port ${port}`);
 })
