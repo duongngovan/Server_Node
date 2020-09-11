@@ -46,7 +46,7 @@ userSchema.pre('save', async function (next) {
 
 
 userSchema.statics.checkLogin = async (password, phone) => {
-  // Search for a user by email and password.
+  // Tìm user qua email và số điện thoại
   const user = await User.findOne({ phone })
   if (!user) {
     throw new Error('Không tồn tại số điện thoại')

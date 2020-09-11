@@ -20,7 +20,6 @@ export async function addShop(req, res) {
             message: err.message
         })
     }
-
 }
 
 export function getShop(req, res) {

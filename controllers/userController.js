@@ -47,9 +47,9 @@ export async function deleteUser (req, res) {
   try {
     const user = await User.findByIdAndDelete(req.params.id, req.body)
     if (!user) {
-      res.status(404).send('User not found')
+      res.status(404).send('Không tìm thấy người dùng')
     } else {
-      res.send('Delete success')
+      res.send('Xóa người dùng thành công')
     }
   } catch (error) {
     res.status(500).send(error)
