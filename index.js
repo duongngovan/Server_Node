@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import userRouter from './routers/userRouter.js'
 import shopRouter from './routers/shopRouter.js'
+import productRouter from './routers/productRouter.js'
 
 const app = express()
 const port = 3000
@@ -24,6 +25,7 @@ mongoose
 //cài đặt điều hướng
 app.use('/user/', userRouter)
 app.use('/shop/', shopRouter)
+app.use('/product/',productRouter)
 
 app.get('/', (req, res) => {
   res.send('hello world test ')

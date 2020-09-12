@@ -4,7 +4,7 @@ const shopSchema = mongoose.Schema({
     id_user:{
         type: mongoose.Schema.Types.ObjectId,
         require: true,
-        ref:'users',
+        ref:'User',
     },
     name_shop:{
         type: String,
@@ -22,11 +22,11 @@ const shopSchema = mongoose.Schema({
         type: String,
         require: true,
     },
-    product:[{
+    products:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'product'
+        ref: 'Product'
     }]
 })
 
-const Shop = mongoose.model('Shop', shopSchema, 'shop');
+const Shop = mongoose.model('Shop', shopSchema, 'shops');
 export default Shop;

@@ -23,7 +23,7 @@ export async function addShop(req, res) {
 }
 
 export function getShop(req, res) {
-    Shop.find({}).then(shops => {
+    Shop.find().then(shops => {
         res.send(shops)
     })
 }
